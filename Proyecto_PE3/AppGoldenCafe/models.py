@@ -4,7 +4,7 @@ from django.db import models
 
 class Cliente(models.Model):   
     nombre = models.CharField(max_length=30)
-    email = models.EmailField(max_length=40)
+    email = models.EmailField()
 
 
 class Pedido(models.Model):   

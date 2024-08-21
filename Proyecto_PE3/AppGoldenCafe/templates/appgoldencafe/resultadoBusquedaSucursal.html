@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Busq Sucursales</title>
+</head>
+<body>
+    
+    <p>Estamos buscando la sucursal: {{ barrio }}</p>
+
+    {% if sucursales %}
+    <ul>
+        {% for sucursal in sucursales %}
+            <li>{{ sucursal.barrio }}</li>
+            <li>{{ sucursal.id_sucursal }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+</body>
+</html>

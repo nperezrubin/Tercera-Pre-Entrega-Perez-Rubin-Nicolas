@@ -9,6 +9,8 @@ Al hacer click en Clientes (clase hija), podemos ver dos reseñas de clientes. E
 Al hacer click en Pedidos (clase hija), podemos ver los dos productos más pedidos. El resto de la página es igual a padre.html (heredada).
 Al hacer click en Sucursales (clase hija), podemos ver las dos Sucursales actuales. El resto de la página es igual a padre.html (heredada).
 
+- El botón Iniciar Sesión aún no se configuró
+- El botón Registrarse aún no se configuró
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
