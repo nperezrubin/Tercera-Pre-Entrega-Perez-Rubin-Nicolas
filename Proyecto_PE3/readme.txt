@@ -1,21 +1,36 @@
 Pre Entrega #3 - Nicolás Pérez Rubín
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-La web contiene un nav con los siguientes botones: Inicio, Clientes, Pedidos, Sucursales, Iniciar Sesión y Registrarse.
-Al hacer click en inicio, se dirige a padre.html, la cual es heredada por el resto de las vistas.
-Esta vista cuenta con la frase "Usted se encuentra en nuestra página de inicio. Bienvenido!" que es exclusiva de esta vista.
+Página de inicio: http://127.0.0.1:8000/AppGoldenCafe/padre/
 
-Al hacer click en Clientes (clase hija), podemos ver dos reseñas de clientes. El resto de la página es igual a padre.html (heredada).
-Al hacer click en Pedidos (clase hija), podemos ver los dos productos más pedidos. El resto de la página es igual a padre.html (heredada).
-Al hacer click en Sucursales (clase hija), podemos ver las dos Sucursales actuales. El resto de la página es igual a padre.html (heredada).
+La web contiene un nav con los siguientes botones: 
+- Inicio (padre.html) --> Utilizada para heredar templates. Contiene un mensaje exclusivo de esta vista: "Usted se encuentra en nuestra página de inicio. Bienvenido!"
+- Clientes (cliente.html - heredada de padre.html) --> Contiene valoraciones de 2 clientes
+- Pedidos (pedido.html - heredada de padre.html) --> Contiene los dos cafés más pedidos
+- Sucursales (sucursal.html - heredada de padre.html) --> Muestra las 2 sucursales actuales
+- Formulario Cliente (cliente_form_2.html) --> Permite ingresar nuevos registros a la clase Cliente
+- Formulario Pedido (pedido_form_2.html) --> Permite ingresar nuevos registros a la clase Pedido
+- Formulario Sucursal (sucursal_form_2.html) --> Permite ingresar nuevos registros a la clase Sucursal
+- Iniciar Sesión (aún no activa)
+- Registrarse (aún no activa)
 
-- El botón Iniciar Sesión aún no se configuró
-- El botón Registrarse aún no se configuró
+- Para buscar un cliente, pedido, o sucursal de la BD, se debe ingresar a las urls:
+  - /AppGoldenCafe/busquedaCliente --> búsqueda por nombre
+  - /AppGoldenCafe/busquedaPedido --> búsqueda por tipo_cafe
+  - /AppGoldenCafe/busquedaSucursal --> búsqueda por barrio
+
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 Notas:
+
+--> Abrir carpeta del proyecto con VSC
+
+Consola-Terminal
+entorno-virtual-p/Scripts/activate (para activar el entorno virtual)
+python manage.py runserver (para correr el servidor y que se pueda ver la página en el URL que indica)
+
 
 GIT BASH
 en git Bash: (ir a la carpeta del proyecto, click derecho --> open git bash here)
@@ -24,6 +39,7 @@ en git Bash: (ir a la carpeta del proyecto, click derecho --> open git bash here
 - git commit -m "comentario sobre el commit"
 - ls
 - git push (para llevarlo al repo) (luego hacer F5 en el repo y validar los cambios)
+
 
 ADMIN
 http://127.0.0.1:8000/admin/
