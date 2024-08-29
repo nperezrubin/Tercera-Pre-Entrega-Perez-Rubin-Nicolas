@@ -15,6 +15,18 @@
 
 <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
    
+    <header class="page-top" style="margin-top: 80px;">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Nuestros Clientes</h1>
+                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;">Conocé qué dicen algunos de nuestros clientes que probaron Golden Cafe</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
      <!-- Content section 1-->
      <section id="scroll">
         <div class="container px-5">
@@ -48,7 +60,67 @@
         </div>
     </section>
 
+
+
+
+
+    <!-- NUEVA PARTE INCLUYENDO TODO -->
+     
+        <section>
+
+            <h1>Gestión de Clientes</h1>
+
+            <!-- Agregar Cliente -->
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_table }}
+                <button type="submit" name="agregar_cliente">Agregar Cliente</button>
+            </form>
+
+        </section>
+        
+        <div style="height: 50px;"></div>
+
+        <section>
+
+            <!-- Buscar Cliente -->
+            <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;">Ingrese el nombre del cliente:</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="nombre" placeholder="nombre">
+                <button type="submit" name="buscar_cliente">Buscar</button>
+            </form>
+    
+
+            <!-- Resultado Busqueda Cliente -->
+            {% if clientes %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th> Nombre /</th>
+                            <th> Email </th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        {% for cliente in clientes %}
+                            <tr>
+                                <td>{{ cliente.nombre }}</td>
+                                <td>{{ cliente.email }}</td>
+                                </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>  
+
+            {% else %}
+                {{ mensaje }}
+            {% endif %}
+
+        </section>  
+   
+
+
 {% endblock %}
 
 </body>
 </html>
+

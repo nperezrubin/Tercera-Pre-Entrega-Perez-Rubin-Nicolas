@@ -15,6 +15,17 @@
 
 <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
 
+    <header class="page-top" style="margin-top: 80px;">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Vení a visitarnos</h1>
+                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Contamos con dos sucursales para recibirte!</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
 
      <!-- Content section 1-->
      <section id="scroll">
@@ -49,6 +60,61 @@
         </div>
     </section>
    
+
+    <!-- NUEVA PARTE INCLUYENDO TODO -->
+        
+    <section>
+
+        <h1>Gestión de Sucursales</h1>
+
+        <!-- Agregar Sucursal -->
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <button type="submit" name="agregar_sucursal">Agregar Sucursal</button>
+        </form>
+
+    </section>
+
+    <div style="height: 50px;"></div>
+    
+    <section>
+
+        <!-- Buscar Sucursal -->
+        <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;">Ingrese el barrio:</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="barrio" placeholder="barrio">
+            <button type="submit" name="buscar_sucursal">Buscar</button>
+        </form>
+
+
+        <!-- Resultado Busqueda Sucursal -->
+        {% if sucursales %}
+            <table>
+                <thead>
+                    <tr>
+                        <th> Nombre del Barrio o Sucursal /</th>
+                        <th> ID Sucursal </th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {% for sucursal in sucursales %}
+                        <tr>
+                            <td>{{ sucursal.barrio }}</td>
+                            <td>{{ sucursal.id_sucursal }}</td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>  
+
+        {% else %}
+            {{ mensaje }}
+        {% endif %}
+
+    </section>     
+
+
 
 
 {% endblock %}

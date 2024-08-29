@@ -22,7 +22,7 @@ from Proyecto_PreEntrega3.views import funcion, agregar_cliente
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('AppGoldenCafe/', include('AppGoldenCafe.urls')),
+    path('', include('AppGoldenCafe.urls')),
     path('funcion/', funcion),
     path('agregar_curso/<nombre_cliente>/<email_cliente>/', agregar_cliente),
 ]

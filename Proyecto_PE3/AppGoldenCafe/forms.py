@@ -1,9 +1,10 @@
 from django import forms
+from AppGoldenCafe.models import Cliente
 
 
-class clienteFormulario(forms.Form):
+class clienteFormulario(forms.forms.Form):
     nombre = forms.CharField(max_length=30)
-    email = forms.EmailField(max_length=40)
+    email = forms.EmailField()
 
 class pedidoFormulario(forms.Form):
     tipo_cafe = forms.CharField(max_length=30)
@@ -14,5 +15,3 @@ class sucursalFormulario(forms.Form):
     id_sucursal = forms.IntegerField()
 
 
-#class Buscar(forms.Form):
-#    nombre = forms.CharField(max_length=20)

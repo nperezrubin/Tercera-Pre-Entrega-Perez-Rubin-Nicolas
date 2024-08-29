@@ -14,6 +14,18 @@
 {% block contenidoQueCambia %} 
 
 <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <header class="page-top" style="margin-top: 80px;">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <h1 class="mx-auto my-0" style="border-color: antiquewhite;">Los más pedidos!</h1>
+                    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;"> Cuáles son los que más salen? Te contamos acá</h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
 
      <!-- Content section 1-->
      <section id="scroll">
@@ -48,7 +60,66 @@
         </div>
     </section>
 
-{% endblock %}
+
+
+
+ <!-- NUEVA PARTE INCLUYENDO TODO -->
+     
+ <section>
+
+    <h1>Gestión de Pedidos</h1>
+
+    <!-- Agregar Pedido -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit" name="agregar_pedido">Agregar Pedido</button>
+    </form>
+
+</section>
+
+<div style="height: 50px;"></div>
+
+<section>
+
+    <!-- Buscar Pedido -->
+    <h2 class="text-black-50 mx-auto mt-2 mb-5" style="border-color: antiquewhite; font-size: 20px;">Ingrese el nombre del pedido o café:</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="tipo_cafe" placeholder="tipo_cafe">
+        <button type="submit" name="buscar_pedido">Buscar</button>
+    </form>
+
+
+    <!-- Resultado Busqueda Pedido -->
+    {% if pedidos %}
+        <table>
+            <thead>
+                <tr>
+                    <th> Nombre del Pedido o Café /</th>
+                    <th> Unidades </th>
+                    </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                    <tr>
+                        <td>{{ pedido.tipo_cafe }}</td>
+                        <td>{{ pedido.unidades }}</td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>  
+
+    {% else %}
+        {{ mensaje }}
+    {% endif %}
+
+</section>  
+
+
+
+{% endblock %}   
+
 
 </body>
 </html>

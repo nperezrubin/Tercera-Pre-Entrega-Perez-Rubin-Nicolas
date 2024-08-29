@@ -20,24 +20,20 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="#page-top">Volver Arriba</a>
+                <a class="navbar-brand" style="background-color: #222527" href="#page-top">Volver Arriba</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'padre'%}">Inicio</a></li>  <!-- Le indicamos a donde va cuando toco el boton inicio. Le indico por medio de la url y el nombre correspondiente.-->
-                        <li class="nav-item"><a class="nav-link" href="{% url 'cliente' %}">Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'pedido' %}">Pedidos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'sucursal' %}">Sucursales</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'cliente_form_2' %}">Formulario Cliente</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'pedido_form_2' %}">Formulario Pedido</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'sucursal_form_2' %}">Formulario Sucursal</a></li>
-
-                        <li class="nav-item"><a class="nav-link" href="{% url 'padre'%}">Iniciar Sesión</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'padre'%}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'padre'%}">Inicio</a></li>  
+                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'clientes' %}">Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'pedidos' %}">Pedidos</a></li>
+                        <li class="nav-item"><a class="nav-link" style="background-color: #222527" href="{% url 'sucursales' %}">Sucursales</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        {% block contenidoQueCambia %}
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
@@ -45,17 +41,17 @@
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">Golden Cafe</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Somos Golden Cafe, y esta es nuestra página oficial</h2>
-                        <a class="btn btn-primary" href="#about">Hacer un pedido</a>
+                        <a class="btn btn-primary" href="#about">Sobre Nosotros</a>
                     </div>
                 </div>
             </div>
         </header>
 
-        {% block contenidoQueCambia %}
         
-        <h2 class="text-black-50 mx-auto mt-2 mb-5">Usted se encuentra en nuestra página de inicio. Bienvenido!</h2>
+        
+        <h2 class="text-black-50 mx-auto mt-2 mb-5"> Bienvenido a nuestra página de inicio </h2>
       
-        {% endblock %}
+        
 
         <!-- About-->
         <section class="about-section text-center" id="about">
@@ -65,7 +61,7 @@
                         <h2 class="text-white mb-4">Qué bueno es verte por acá!</h2>
                         <p class="text-white-50">
                             Golden Cafe es una propuesta de Cafe de especialidad que busca despertar todos tus sentidos. Visitanos! Conoce 
-                            <a href="http://127.0.0.1:8000/AppGoldenCafe/sucursal/">nuestras sucursales.</a>
+                            <a href="http://127.0.0.1:8000/sucursales/">nuestras sucursales.</a>
                             Sumate a nuestro Club Golden.
                         </p>
                     </div>
@@ -116,6 +112,9 @@
                 </div>
             </div>
         </section>
+
+        {% endblock %}
+
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container px-4 px-lg-5">
@@ -134,7 +133,7 @@
                             <!-- Email address input-->
                             <div class="row input-group-newsletter">
                                 <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+                                <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Quiero suscribirme!</button></div>
                             </div>
                             <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Se requiere un email</div>
                             <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email no valido</div>
@@ -144,17 +143,15 @@
                             <!-- has successfully submitted-->
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3 mt-2 text-white">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    <div class="fw-bolder">Suscripción Exitosa!</div>
+                                  
                                 </div>
                             </div>
                             <!-- Submit error message-->
                             <!---->
                             <!-- This is what your users will see when there is-->
                             <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error al enviar mensaje</div></div>
                         </form>
                     </div>
                 </div>
